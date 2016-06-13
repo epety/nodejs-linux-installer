@@ -8,15 +8,15 @@ else
     echo "Running as Root User"
 fi
 
-echo "Get Latest Version Number..."
-
-node_latest=$(curl http://nodejs.org/dist/latest/ 2>/dev/null)
+echo "Get  Version Number..."
+# Change URL to change  
+URL=https://nodejs.org/dist/v4.2.5/
+node_latest=$(curl $URL/ 2>/dev/null)
 if [[ ! $node_latest ]]
     then
         echo "ERROR: No Internet Connection" >&2
         exit 1
 fi
-
 ARCH=$(uname -m)
 
 if [ $ARCH = arm64 ] || [ $ARCH = aarch64 ]
